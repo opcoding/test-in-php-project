@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="PHP Project" default="build">
+    <property name="acceptance" value="${basedir}/vendor/bin/codecept"/>
+
+    <target name="build" depends="composer,acceptance,-check-failure"
+            description="Runs the acceptance tests, and generates reports"/>
+
+    <target name="clean" unless="clean.done" description="Cleanup build artifacts">
+        <delete dir="${basedir}/vendor"/>
+        <delete file="${basedir}/tests/_output/report.html"/>
+        <property name="clean.done" value="true"/>
+    </target>
+
+    <target name="composer" unless="composer.done" depends="clean" description="Installing dependencies">
+        <exec executable="${user.home}/bin/composer" failonerror="true">
+            <arg value="install" />
+            <arg value="--dev" />
+            <arg value="--prefer-dist" />
+            <arg value="--no-progress" />
+        </exec>
+    </target>
+
+    <target name="acceptance" unless="acceptance.done" depends="composer"
+            description="Run acceptance tests with Codeception">
+        <exec executable="${acceptance}" resultproperty="result.acceptance" failonerror="true" taskname="acceptance">
+            <arg value="run"/>
+            <arg value="acceptance"/>
+            <arg value="--steps"/>
+            <arg value="--html"/>
+            <arg value="--xml"/>
+            <arg value="--no-ansi"/>
+        </exec>
+
+        <property name="acceptance.done" value="true"/>
+    </target>
+
+    <target name="-check-failure">
+        <fail message="Codeception did not finish successfully">
+            <condition>
+                <not>
+                    <equals arg1="${result.acceptance}" arg2="0"/>
+                </not>
+            </condition>
+        </fail>
+    </target>
+</project>
