@@ -1,0 +1,14 @@
+I WANT TO TRY TO SEARCH PICTURE
+
+I see element 'form#tsf' 
+I see element '#lst-ib' 
+I fill field 'input#lst-ib'," 'lolcatz' 
+I submit form 'form#tsf'," []" 
+I see current url matches '/^\/search\?/' 
+I see element 'form#tsf' 
+I see element '#lst-ib' 
+I see in field 'input#lst-ib'," 'lolcatz' 
+I click 'Images' 
+I see element 'div#search img' 
+I make screenshot ""
+

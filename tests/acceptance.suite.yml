@@ -7,6 +7,15 @@
 actor: AcceptanceTester
 modules:
     enabled:
-        - PhpBrowser:
-            url: http://localhost/myapp
+        - WebDriver:
+            url: http://google.fr
+            browser: chrome
+            capabilities:
+                chromeOptions:
+                    args: ["--headless"]
+            wait: 10
         - \Helper\Acceptance
+#extensions:
+#    enabled:
+#        - Codeception\Extension\RunProcess:
+#            - java -Dwebdriver.chrome.driver=./selenium/chromedriver -jar ./selenium/selenium-server-standalone-3.7.1.jar
