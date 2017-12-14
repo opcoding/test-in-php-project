@@ -30,7 +30,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
     public function iAmAnUserOfGoogle()
     {
-        $this->amOnPage('/');
+        $this->amOnPage('/?hl=fr');
         $this->seeElement('form#tsf');
     }
 
