@@ -1,3 +1,5 @@
+[![continuousphp](https://img.shields.io/continuousphp/git-hub/continuoustest/test-in-php-project/ci/continuousphp.svg)]()
+
 # Test locally
 
 You can use docker container to simulate the environement
