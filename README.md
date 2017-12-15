@@ -10,12 +10,8 @@ More information about codeception at : https://continuousphp.com/documentation/
 
 ## Test locally
 
-You can use docker container to simulate the environement
+We use docker containers to simulate the environment and run tests:
 
-```
-# Start selenium
-docker-compose up -d selenium
+* Run acceptance tests inside a php7.0 container: `make run-acceptance-tests`
 
-# Launch codeception test inside a php7.0 container
-docker-compose up codeception
-```
+If you want only start selenium: `make start-selenium` 
