@@ -18,5 +18,12 @@ help:
 
 ## Start Selenium with Chrome driver
 start-selenium:
-	java -Dwebdriver.chrome.driver=./selenium/chromedriver  -jar ./selenium/selenium-server-standalone-3.7.1.jar
+	docker-compose up -d selenium
 .PHONY: start-selenium
+
+## Run tests
+run-acceptance-tests:
+	make start-selenium
+	docker-compose run --rm codeception
+	docker-compose down
+.PHONY: run-acceptance-tests
