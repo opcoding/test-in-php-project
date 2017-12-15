@@ -4,7 +4,7 @@ $I->am('google user');
 $I->wantTo('Search pictures');
 $I->lookForwardTo('See picture from a search');
 
-$I->amOnPage('/');
+$I->amOnPage('/?hl=fr');
 $I->seeElement('form#tsf');
 
 $I->seeElement('#lst-ib');

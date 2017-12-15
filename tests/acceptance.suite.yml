@@ -7,15 +7,12 @@
 actor: AcceptanceTester
 modules:
     enabled:
-        - WebDriver:
-            url: http://google.fr
-            browser: chrome
-            capabilities:
-                chromeOptions:
-                    args: ["--headless"]
-            wait: 10
+        - WebDriver
         - \Helper\Acceptance
-#extensions:
-#    enabled:
-#        - Codeception\Extension\RunProcess:
-#            - java -Dwebdriver.chrome.driver=./selenium/chromedriver -jar ./selenium/selenium-server-standalone-3.7.1.jar
+    config:
+        WebDriver:
+            url: http://google.fr
+            browser: 'chrome'
+            host: selenium
+            port: 4444
+            windows_size: maximize

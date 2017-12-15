@@ -7,7 +7,7 @@ class SearchPicturesCest
 {
     public function _before(AcceptanceTester $I)
     {
-        $I->amOnPage('/');
+        $I->amOnPage('/?hl=fr');
     }
 
     public function _after(AcceptanceTester $I)
